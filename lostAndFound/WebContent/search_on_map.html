@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Search Results</title>
+<!-- For-Mobile-Apps-and-Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Custom Theme files -->
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all"> 
+<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-- //font-awesome icons -->
+<!-- js -->
+<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
+<script type='text/javascript' src='js/search_result.js'></script>
+<!-- //js -->
+<!-- web-fonts -->  
+<link href='//fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+<!-- //web-fonts -->
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+</head>
+
+<body>
+<!-- menu -->
+<!-- nav-bar -->
+	<button class="btn-nav">
+		<span class="bar arrow-top-r"></span>
+		<span class="bar arrow-middle-r"></span>
+		<span class="bar arrow-bottom-r"></span>
+	</button>
+	<nav class="nav-container hidden hideNav w3_nav">
+	  <ul class="nav-list">
+		<li class="list-item active"><a href="main.html"><i class="glyphicon glyphicon-home" aria-hidden="true"></i></a></li>
+		<li class="list-item"><a href="post.html"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i></a></li>
+		<li class="list-item"><a href="search.html"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></a></li>
+		<li class="list-item"><a href="my_page.html"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></a></li>
+	  </ul>
+	</nav>
+<!-- //nav-bar -->
+
+	<div id="ban" class="agileinfo_menu w3l_menu">
+		<div class="agileinfo_menu_middle">
+			<br>
+			<h1><a href="main.html">Room of Requirements</a></h1>
+			<p><b>--A Lost and Found Platform<b></p>
+		</div>
+		
+		<div class="clearfix"> </div>
+	</div>
+<!-- //menu -->
+
+<!--//pop-up-box -->
+<!-- banner -->
+	<div class="banner1" id="result_report">
+		<h3 style="color:white;"><b>3 result(s) found.</b></h3>
+			<div class="search_btom_1">
+				<a href="search_result.html">Search Result List</a>
+			</div>
+	</div>
+<!-- //banner -->
+			<div>
+				<div id="map" style="width:100%;height:300px;" ></div>
+			</div>
+<!-- //card-of-item -->
+<!-- footer -->
+	<div class="footer_app">
+		<div class="agileits_footer_app_left">
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+<!-- //footer -->
+<!-- nav -->
+<script>
+ $(window).load(function() {
+   $(".btn-nav").on("click tap", function() {
+     $(".nav-container").toggleClass("showNav hideNav").removeClass("hidden");
+     $(this).toggleClass("animated");
+   });
+ });
+</script>
+<!-- //nav -->
+<script>
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see the error "The Geolocation service
+// failed.", it means you probably did not give permission for the browser to
+// locate you.
+function initMap() {
+  var your_pos;
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 6
+  });
+
+  var pos;
+
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) { 
+	var myLatlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+	var Latlng1 = new google.maps.LatLng();
+      pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+	var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title:"Your location"
+	});
+	var marker1 = new google.maps.Marker({
+    position: {lat:59.405, lng:17.949},
+    map: map,
+    title:"Electrum"
+	});
+	var marker1 = new google.maps.Marker({
+    position: {lat:59.403, lng:17.944},
+    map: map,
+    title:"Galleria"
+	})
+      map.setCenter(pos);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+  
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm3LGS3tNSXWQW2p6m02Mgfhqz3_BsPZo&callback=initMap"
+        async defer>
+    </script>
+</body>
+</html>

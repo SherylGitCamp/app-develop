@@ -1,0 +1,26 @@
+
+[
+{
+"itemID":0001,
+"property":"found",
+"title":"A key found in XXX",
+"description":"A black key is found yesterday, on the floor of XXX office. Please contact me asap.",
+"photo":"none",
+"date":"2017-02-02",
+"userID":1001,
+"userName":"Adam",
+"userAvatar":"./images/img_avatar.png",
+"stat":"found"
+},
+{
+"itemID":0002,
+"property":"lost",
+"title":"Did you see a purple wallet nearby XXX?",
+"description":"The wallet was lost yesterday, on my way home, maybe around aaa street, bbb building and ccc street. The one who found it will be rewarded.",
+"photo":"none",
+"date":"2017-02-02",
+"userName":"Shirley",
+"userAvatar":"./images/img_avatar2.png",
+"stat":"lost"
+}
+]
